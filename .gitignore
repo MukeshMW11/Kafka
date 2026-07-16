@@ -1,0 +1,58 @@
+# Compiled class files
+*.class
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Maven
+pub/target/
+sub/target/
+**/target/
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+
+# VS Code
+.vscode/
+
+# Spring Boot
+application-local.yaml
+application-local.properties
+application-local.yml
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Kafka runtime data (if you run local Kafka/Zookeeper here)
+kafka-logs/
+zookeeper-data/
+
+# Env / secrets
+.env
+*.env.local
+
+# Build tools
+*.jar
+!.mvn/wrapper/maven-wrapper.jar
+*.war
+*.ear
