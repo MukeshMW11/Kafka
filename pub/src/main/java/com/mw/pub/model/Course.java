@@ -1,41 +1,39 @@
 package com.mw.pub.model;
 
-public class Course {
-    private String id;
-    private String title;
-    private String trainer;
-    private Double price;
+public record Course (String id,String title,String trainer,Double price){};
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+//
+//    public String getTitle() {
+//        return title;
+//    }
+//
+//    public void setTitle(String title) {
+//        this.title = title;
+//    }
+//
+//    public String getTrainer() {
+//        return trainer;
+//    }
+//
+//    public void setTrainer(String trainer) {
+//        this.trainer = trainer;
+//    }
+//
+//    public Double getPrice() {
+//        return price;
+//    }
+//
+//    public void setPrice(Double price) {
+//        this.price = price;
+//    }
+//
+//    public String getId() {
+//        return id;
+//    }
 
-    public String getTrainer() {
-        return trainer;
-    }
-
-    public void setTrainer(String trainer) {
-        this.trainer = trainer;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-}
+//}
