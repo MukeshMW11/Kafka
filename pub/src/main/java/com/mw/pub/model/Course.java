@@ -1,5 +1,6 @@
 package com.mw.pub.model;
 
+
 public record Course (String id,String title,String trainer,Double price){};
 
 

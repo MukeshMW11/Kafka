@@ -4,10 +4,35 @@ server:
 spring:
   application:
     name: pub
+  cloud:
+    function:
+      definition: courseSupplier
+    stream:
+      function:
+        definition: courseSupplier
+      binding:
+        courseSupplier-out-0:
+          destination: mw1
+          content-type: application/json
+      poller:
+        fixed-delay: 5000
+      kafka:
+        binder:
+          brokers: localhost:9092
 
-  kafka:
-    bootstrap-servers: localhost:9092
 
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+
+
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+#
+#  cloud:
+#    function:
+#      definition: upperCase
+#      function.web.path: /upperCase
