@@ -6,14 +6,17 @@ spring:
     name: pub
   cloud:
     function:
-      definition: courseSupplier
+      definition: courseSupplier;textSupplier
     stream:
       function:
-        definition: courseSupplier
-      binding:
+        definition: courseSupplier;textSupplier
+      bindings:
         courseSupplier-out-0:
           destination: mw1
           content-type: application/json
+        textSupplier-out-0:
+          destination: mw2
+          content-type: text/plain
       poller:
         fixed-delay: 5000
       kafka:
