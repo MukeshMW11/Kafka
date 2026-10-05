@@ -1,30 +1,30 @@
 server:
   port: 8082
 
-spring:
-  application:
-    name: pub
-  cloud:
-    function:
-      definition: courseSupplier;textSupplier
-    stream:
-      function:
-        definition: courseSupplier;textSupplier
-      bindings:
-        courseSupplier-out-0:
-          destination: mw1
-          content-type: application/json
-        textSupplier-out-0:
-          destination: mw2
-          content-type: text/plain
-      poller:
-        fixed-delay: 5000
-      kafka:
-        binder:
-          brokers: localhost:9092
-
-
-
+#spring:
+#  application:
+#    name: pub
+#  cloud:
+#    function:
+#      definition: courseSupplier;textSupplier
+#    stream:
+#      function:
+#        definition: courseSupplier;textSupplier
+#      bindings:
+#        courseSupplier-out-0:
+#          destination: mw1
+#          content-type: application/json
+#        textSupplier-out-0:
+#          destination: mw2
+#          content-type: text/plain
+#      poller:
+#        fixed-delay: 5000
+#      kafka:
+#        binder:
+#          brokers: localhost:9092
+#
+#
+#
 
 
 
