@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1")
 public class ValidationTest {
-    @PostMapping("/hello")
+    @PostMapping("/test/hello")
     public String renderValidationDto(@Valid @RequestBody ValidationDto validationDto ){
         return  "The name of " + validationDto.getName() + " with "  + validationDto.getEmail() + " password " + validationDto.getPassword();
     }
@@ -23,4 +23,9 @@ public class ValidationTest {
         return ResponseEntity.ok(validationDto);
     }
 
+
+    @GetMapping("/auth/hello")
+    public String authHello( ){
+    return "This is the hello auth";
+    }
 }
