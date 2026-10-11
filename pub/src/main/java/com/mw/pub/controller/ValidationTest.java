@@ -14,7 +14,7 @@ public class ValidationTest {
         return  "The name of " + validationDto.getName() + " with "  + validationDto.getEmail() + " password " + validationDto.getPassword();
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<ValidationDto>  handleLogin(){
         ValidationDto validationDto = new ValidationDto();
         validationDto.setEmail("abc@email.com");
