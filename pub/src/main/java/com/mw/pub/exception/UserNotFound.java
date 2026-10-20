@@ -1,7 +1,7 @@
 package com.mw.pub.exception;
 
 public class UserNotFound extends RuntimeException{
- UserNotFound(String message){
+ public UserNotFound(String message){
     super(message);
 }
 }
