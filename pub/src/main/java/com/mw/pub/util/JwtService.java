@@ -1,5 +1,6 @@
 package com.mw.pub.util;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
@@ -29,6 +30,16 @@ public class JwtService {
                 .signWith(getKey())
                 .compact();
 
+
+    }
+
+
+    public Claims parseToken(String token){
+        return Jwts.parser()
+                .verifyWith(getKey())
+                .build()
+                .parseSignedClaims(token)
+                .getPayload();
 
     }
 

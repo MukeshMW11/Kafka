@@ -4,6 +4,9 @@ import com.mw.pub.dto.LoginDto;
 import com.mw.pub.dto.LoginResponseDto;
 import com.mw.pub.dto.UserDto;
 import com.mw.pub.dto.UserRegisterResponse;
+import org.springframework.stereotype.Service;
+
+
 
 public interface AuthService {
     public UserRegisterResponse registerUser(UserDto userDto);
