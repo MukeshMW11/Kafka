@@ -3,12 +3,16 @@ package com.mw.pub.entities;
 
 import com.mw.pub.enums.Role;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@Table(name = "users")
 public class User {
 
 
@@ -22,6 +26,9 @@ public class User {
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy="user")
+    private List<Order> orders = new ArrayList<>();
 
 
 }
