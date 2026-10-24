@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -32,6 +33,12 @@ private final JwtService jwtService;
 
     @Override
     public UserRegisterResponse registerUser(UserDto userDto){
+
+        Optional<User> duplicateUser = userRepository.findByEmail(userDto.getEmail());
+        if(duplicateUser.isPresent()){
+            throw new RuntimeException("User with these credentials already exists");
+        }
+
         User savedUser = userRepository.save(dtoToDb(userDto));
         return new UserRegisterResponse(savedUser.getId(),savedUser.getEmail());
     };
