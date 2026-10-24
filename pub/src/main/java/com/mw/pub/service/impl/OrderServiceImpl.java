@@ -9,7 +9,6 @@ import com.mw.pub.exception.UserNotFound;
 import com.mw.pub.repository.OrderRepository;
 import com.mw.pub.repository.UserRepository;
 import com.mw.pub.service.OrderService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
@@ -88,10 +87,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public String deleteOrder(Long orderID) {
-        Order order = orderRepository.findById(orderID).orElseThrow(()-> new OrderNotFound("The order with id : " + orderID + "cannot be found" ));
+    public String deleteOrder(Long orderId) {
+        Order order = orderRepository.findById(orderId).orElseThrow(()-> new OrderNotFound("The order with id : " + orderId + "cannot be found" ));
         orderRepository.delete(order);
         return "The order was successfully deleted";
+    }
+
+    @Override
+    public String deleteMyOrder(Long orderId) {
+        User loggedInuser = getLoggedInUser();
+        Order order = orderRepository.findByIdAndUserId(orderId , loggedInuser.getId()).orElseThrow(()-> new OrderNotFound("The order related to user cannot be found"));
+        return "The  order was successfully deleted";
     }
 
 

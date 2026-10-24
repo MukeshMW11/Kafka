@@ -44,9 +44,14 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.getMyOrder(orderId));
     }
 
+//   User -> delete user particular order
+    @DeleteMapping("my/{orderId}")
+    public ResponseEntity<String> deleteMyOrder(@PathVariable Long orderId) {
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.deleteMyOrder(orderId));
+    }
 
 //    Admin -> Get All Orders
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<OrderResponseDto>> getAllOrders(){
         return ResponseEntity.status(HttpStatus.OK).body(orderService.getAllOrders());
     }
@@ -67,7 +72,7 @@ public class OrderController {
 
 
 //    Admin -> Delete an order
-    @DeleteMapping("/{orderId}")
+    @DeleteMapping("/user/{orderId}")
     public ResponseEntity<String> deleteOrder(@PathVariable Long orderId){
         return ResponseEntity.status(HttpStatus.NO_CONTENT).body(orderService.deleteOrder(orderId));
     }
