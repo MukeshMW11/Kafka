@@ -18,7 +18,6 @@ import java.util.Optional;
 
 
 @Service
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 

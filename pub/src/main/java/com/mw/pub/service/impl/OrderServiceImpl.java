@@ -20,7 +20,6 @@ import java.util.Objects;
 
 
 @Service
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 

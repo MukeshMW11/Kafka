@@ -4,7 +4,6 @@ package com.mw.pub.util;
 import com.mw.pub.entities.User;
 import com.mw.pub.exception.UserNotFound;
 import com.mw.pub.repository.UserRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,7 +11,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class CustomUserDetailService implements UserDetailsService {
 

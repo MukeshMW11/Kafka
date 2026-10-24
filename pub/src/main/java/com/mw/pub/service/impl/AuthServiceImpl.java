@@ -23,7 +23,6 @@ import org.springframework.stereotype.Service;
 import java.util.Objects;
 
 @Service
-@AllArgsConstructor
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {
 private final PasswordEncoder passwordEncoder;
