@@ -41,11 +41,11 @@ public class SecurityConfig {
                                 .requestMatchers("/api/v1/users/**").hasRole(Role.ADMIN.name())
 //                                USERS ORDERS
                                 .requestMatchers(HttpMethod.POST,"/api/v1/orders").hasRole(Role.USER.name())
-                                .requestMatchers("api/v1/orders/my/**").hasRole(Role.USER.name())
+                                .requestMatchers("/api/v1/orders/my/**").hasRole(Role.USER.name())
 //                                ADMIN ORDERS
-                                .requestMatchers(HttpMethod.GET,"api/v1/orders/**").hasRole(Role.ADMIN.name())
-                                .requestMatchers("api/v1/orders/user/**").hasRole(Role.ADMIN.name())
-                                .requestMatchers(HttpMethod.DELETE,"api/v1/orders/user/**").hasRole(Role.ADMIN.name())
+                                .requestMatchers(HttpMethod.GET,"/api/v1/orders/**").hasRole(Role.ADMIN.name())
+                                .requestMatchers("/api/v1/orders/user/**").hasRole(Role.ADMIN.name())
+                                .requestMatchers(HttpMethod.DELETE,"/api/v1/orders/user/**").hasRole(Role.ADMIN.name())
 
                                 .anyRequest().authenticated()
                 ).addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
