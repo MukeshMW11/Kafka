@@ -19,11 +19,12 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    @NotNull
+    @Column(nullable = false,length = 50)
     private String name;
+    @Column(length = 200)
     private String description;
     @NotNull
-    @NotBlank
+    @Column(nullable = false, precision = 19, scale =2)
     private BigDecimal price;
 
     @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)

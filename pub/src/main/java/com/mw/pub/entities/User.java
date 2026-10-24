@@ -4,7 +4,10 @@ package com.mw.pub.entities;
 import com.mw.pub.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
+import java.sql.SQLType;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +28,9 @@ public class User {
     @Column(nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
-    private Role role;
+    @Column(nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    private Role role = Role.USER;
 
     @OneToMany(mappedBy="user")
     private List<Order> orders = new ArrayList<>();
